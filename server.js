@@ -18,22 +18,22 @@ var config = require('./config')
   , mongoose  = require('mongoose')
 
 mongoose.connect(config.db);
-// app.use(express.static(__dirname + '/public'));
+
 app.use("/", express.static(path.join(__dirname, 'public')));
+app.set('views', path.join(__dirname, 'views'));
+
 app.use(cors());
 app.use(logger('dev'));
 app.use(flash());
+
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(bodyParser.json());
 
-app.set('views', path.join(__dirname, 'views'));
-// TODO: translate to EJS
-app.set('view engine', 'jade');
-app.set('view options', {
-  layout: false
-});
+var ejs = require('ejs');
+app.engine('html', ejs.renderFile); 
+app.set('view engine', 'html');
 
 // RESOURCES
 app.get('/', resources.index);
