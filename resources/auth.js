@@ -13,7 +13,7 @@ module.exports = {
 	  var payload = null;
 	  
 	  try {
-	    payload = jwt.decode(token, config.TOKEN_SECRET);
+	    payload = jwt.decode(token, process.env.TOKEN_SECRET);
 	  }
 	  catch (err) {
 	    return res.status(401).send({ message: err.message });
@@ -34,6 +34,6 @@ module.exports = {
 	    iat: moment().unix(),
 	    exp: moment().add(14, 'days').unix()
 	  };
-	  return jwt.encode(payload, config.TOKEN_SECRET);
+	  return jwt.encode(payload, process.env.TOKEN_SECRET);
 	}
 };

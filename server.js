@@ -6,6 +6,9 @@ var express = require('express'),
     mongoose = require('mongoose'),
     auth = require('./resources/auth');
 
+// require and load dotenv
+require('dotenv').load();
+
 // configure bodyParser (for receiving form data)
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
