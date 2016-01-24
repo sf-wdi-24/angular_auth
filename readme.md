@@ -1,12 +1,12 @@
 # <img src="https://cloud.githubusercontent.com/assets/7833470/10899314/63829980-8188-11e5-8cdd-4ded5bcb6e36.png" height="60"> Angular Auth Challenges
 
-Challenges for <a href="https://github.com/sf-wdi-24/modules/tree/master/week-11-front-end-frameworks-and-mobile/day-01/module-01" target="">Angular Auth</a> lesson.
+Challenges for <a href="https://github.com/sf-wdi-24/modules/tree/master/week-11-front-end-frameworks-and-mobile/day-01/module-01" target="_blank">Angular Auth</a> lesson.
 
 **Objective:** Implement Angular authentication with Satellizer. Your goal is to have working sign up and log in functionality.
 
 **You should be pair programming the entire time you work on these challenges. That means you're using ONE computer at a time, and ONLY the "driver" is allowed to type (you'll switch roles throughout the lab).**
 
-> <a href="https://github.com/sahat/satellizer#authloginuser-options" target="">Satellizer Docs</a>
+> <a href="https://github.com/sahat/satellizer#authloginuser-options" target="_blank">Satellizer Docs</a>
 
 ## App Setup
 
@@ -25,7 +25,7 @@ Challenges for <a href="https://github.com/sf-wdi-24/modules/tree/master/week-11
 7. Next, the driver should add a `.env` file to the root directory. Add this line:
 
   ```
-  TOKEN_SECRET=supersecrettoken
+  TOKEN_SECRET=yoursupersecrettoken
   ```
 
   This is the secret your server will use to encode the JWT token for each user.
@@ -104,4 +104,4 @@ Challenges for <a href="https://github.com/sf-wdi-24/modules/tree/master/week-11
 
 3. On the user's profile page, display the number of posts the user has written. **Hint:** You'll need to add `.populate('posts')` to your `GET /api/me` route in `server.js`.
 
-4. On the user profile page, the "Joined" date is not formatted very nicely. Create a <a href="https://docs.angularjs.org/guide/filter#creating-custom-filters" target="">custom filter</a> to display the date in the correct time zone and in this format: `January 25, 2016`.
+4. On the user profile page, the "Joined" date is not formatted very nicely. Create a <a href="https://docs.angularjs.org/guide/filter#creating-custom-filters" target="_blank">custom filter</a> to display the date in the correct time zone and in this format: `January 25, 2016`.
