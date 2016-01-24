@@ -54,7 +54,7 @@ app.controller('MainCtrl', ['$scope', '$auth', '$http', '$location',
       // logout (https://github.com/sahat/satellizer#authlogout)
       $auth.logout()
         .then(function() {
-          // remove token
+          // remove token (https://github.com/sahat/satellizer#authremovetoken)
           $auth.removeToken();
           // set $scope.currentUser = null
           $scope.currentUser = null;
