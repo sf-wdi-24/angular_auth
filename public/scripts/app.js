@@ -114,21 +114,14 @@ app.controller('AuthCtrl', ['$scope', '$auth', '$location',
 app.controller('ProfileCtrl', ['$scope', '$auth', '$http', '$location',
 	function ($scope, $auth, $http, $location) {
     // if user is not logged in, redirect to '/login'
-    if (!$scope.currentUser) {
+    if ($scope.currentUser === undefined) {
       $location.path('/login');
     }
 
     $scope.editProfile = function() {
-      $http.put('/api/me')
+      $http.put('/api/me', $scope.currentUser)
         .then(function (response) {
-          if (response.data) {
-            $scope.currentUser = response.data;
-            $scope.showEditForm = false;
-          } else {
-            $auth.removeToken();
-            $scope.currentUser = null;
-            $location.path('/login');
-          }
+          $scope.showEditForm = false;
         }, function (error) {
           console.error(error);
           $auth.removeToken();
