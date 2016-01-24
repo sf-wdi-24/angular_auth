@@ -53,3 +53,55 @@ Challenges for <a href="https://github.com/sf-wdi-24/modules/tree/master/week-11
 6. The new driver should pick up where their partner left off by implementing the functionality outlined in the `AuthCtrl` and the `ProfileCtrl`.
 
 7. At this point, you should be able to sign up a user, log them in, and view their profile page from the client.
+
+## User Settings
+
+1. It's time to switch drivers again! The current driver should add, commit, and push, and the new driver should pull down the changes.
+
+2. Add a `username` field to the Sign Up form, and add the `username` attribute to `User` model (server-side). Sign up a new user with a `username`.
+
+3. On the user profile page, make a form to edit the user's details. The form should initially be hidden, and when the user clicks a button or link to "Edit Profile", the form should show (**Hint:** `ng-show`).
+
+4. When the user submits the form, it should call a function in the `ProfileCtrl` (**Hint:** `ng-submit`). The function should send an `$http.put` request to `/api/me`. Verify that this works.
+
+## Nested Resources: Posts
+
+1. Switch drivers - you know the drill - add, commit, and push, then the new driver should pull.
+
+2. Create a form on the homepage for the user to add a post (that's right - you're turning your Angular app into a microblog!). The form should have input (`post.title`) and textarea (`post.content`) fields. Use `ng-model` to bind the form input values to `$scope`.
+
+3. Only show the form if there is a `currentUser` logged in.
+
+4. Use the `ng-submit` directive to run the function `createPost` when the user submits the form.
+
+5. `createPost` should make an `$http.post` request to `/api/posts` (which isn't defined yet on the server) with the `$scope.post` object.
+
+6. The next step is to implement posts on the server. First, create a Mongoose model `Post`,
+
+7. A user should have many posts, so add an attribute to the `User` model called `posts` that references the `Post` model:
+
+  ```
+  /*
+   * models/user.js
+   */
+   var userSchema = new Schema({
+     ...
+     posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }]
+   });
+  ```
+
+8. In `server.js`, define two new API routes:
+  * `GET /api/posts` should retrieve all the posts from the database.
+  * `POST /api/posts` should create a new post that *belongs to* the current user (**Hint:** Use the `auth.ensureAuthenticated` function in the route to find the current user).
+
+9. Refresh `localhost:3000` in the browser. Make sure you have a user logged in, and try to create a new post. Check the Chrome developer tools to make sure it's working.
+
+## Finishing Touches
+
+1. Switch drivers one last time.
+
+2. Use `ng-repeat` to display a list of all posts on the homepage. Anyone should be able to see the list of posts, but only logged in users should be able to see the form to create a new post.
+
+3. On the user's profile page, display the number of posts the user has written. **Hint:** You'll need to add `.populate('posts')` to your `GET /api/me` route in `server.js`.
+
+4. On the user profile page, the "Joined" date is not formatted very nicely. Create a <a href="https://docs.angularjs.org/guide/filter#creating-custom-filters" target="">custom filter</a> to display the date in the correct time zone and in this format: `January 25, 2016`.
