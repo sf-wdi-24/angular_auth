@@ -105,4 +105,4 @@ Challenges for <a href="https://github.com/sf-wdi-24/modules/tree/master/week-11
 
 3. On the user's profile page, display the number of posts the user has written. **Hint:** You'll need to add `.populate('posts')` to your `GET /api/me` route in `server.js`.
 
-4. On the user profile page, the "Joined" date isn't formatted very nicely. Create a <a href="https://docs.angularjs.org/guide/filter#creating-custom-filters" target="_blank">custom filter</a> to display the date in the correct time zone and in this format: `January 25, 2016`.
+4. On the user profile page, the "Joined" date isn't formatted very nicely. Use Angular's built-in <a href="https://docs.angularjs.org/api/ng/filter/date" target="_blank">date filter</a> to display the date in this format: `January 25, 2016`.
