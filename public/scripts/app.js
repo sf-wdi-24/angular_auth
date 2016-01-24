@@ -58,7 +58,7 @@ app.controller('MainCtrl', ['$scope', '$auth', '$http', '$location',
           $auth.removeToken();
           // set $scope.currentUser = null
           $scope.currentUser = null;
-          // redirect to '/'
+          // redirect to '/login'
           $location.path('/');
         });
     };
