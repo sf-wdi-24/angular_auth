@@ -1,4 +1,4 @@
-var app = angular.module('authSampleApp', ['ngRoute', 'satellizer']);
+var app = angular.module('authSampleApp', ['ngRoute']);
 
 app.config(['$routeProvider', '$locationProvider',
   function ($routeProvider, $locationProvider) {
