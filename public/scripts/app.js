@@ -32,7 +32,7 @@ app.config(['$routeProvider', '$locationProvider',
 app.controller('MainCtrl', ['$scope', '$auth', '$http', '$location',
 	function ($scope, $auth, $http, $location) {
     $scope.isAuthenticated = function() {
-      // send GET request to /api/me
+      // send GET request to '/api/me'
       $http.get('/api/me')
         .then(function (response) {
           // if response.data comes back, set $scope.currentUser = response.data
@@ -51,10 +51,14 @@ app.controller('MainCtrl', ['$scope', '$auth', '$http', '$location',
     $scope.isAuthenticated();
 
     $scope.logout = function() {
+      // logout
       $auth.logout()
         .then(function() {
+          // remove token
           $auth.removeToken();
+          // set $scope.currentUser = null
           $scope.currentUser = null;
+          // redirect to '/'
           $location.path('/');
         });
     };
