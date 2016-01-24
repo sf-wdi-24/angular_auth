@@ -42,6 +42,7 @@ app.put('/api/me', auth.ensureAuthenticated, function (req, res) {
       return res.status(400).send({ message: 'User not found.' });
     }
     user.displayName = req.body.displayName || user.displayName;
+    user.username = req.body.username || user.username;
     user.email = req.body.email || user.email;
     user.save(function(err) {
       res.status(200).end();
@@ -61,6 +62,7 @@ app.post('/auth/signup', function (req, res) {
     }
     var user = new User({
       displayName: req.body.displayName,
+      username: req.body.username,
       email: req.body.email,
       password: req.body.password
     });

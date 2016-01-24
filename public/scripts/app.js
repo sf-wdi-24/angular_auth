@@ -59,7 +59,7 @@ app.controller('MainCtrl', ['$scope', '$auth', '$http', '$location',
           // set $scope.currentUser = null
           $scope.currentUser = null;
           // redirect to '/login'
-          $location.path('/');
+          $location.path('/login');
         });
     };
   }]
@@ -111,10 +111,27 @@ app.controller('AuthCtrl', ['$scope', '$auth', '$location',
   }]
 );
 
-app.controller('ProfileCtrl', ['$scope', '$http', '$location',
-	function ($scope, $http, $location) {
+app.controller('ProfileCtrl', ['$scope', '$auth', '$http', '$location',
+	function ($scope, $auth, $http, $location) {
     // if user is not logged in, redirect to '/login'
     if (!$scope.currentUser) {
       $location.path('/login');
     }
+
+    $scope.editProfile = function() {
+      $http.put('/api/me')
+        .then(function (response) {
+          if (response.data) {
+            $scope.currentUser = response.data;
+            $scope.showEditForm = false;
+          } else {
+            $auth.removeToken();
+            $scope.currentUser = null;
+            $location.path('/login');
+          }
+        }, function (error) {
+          console.error(error);
+          $auth.removeToken();
+        });
+    };
 }]);
