@@ -32,17 +32,11 @@ app.config(['$routeProvider', '$locationProvider',
 app.controller('MainCtrl', ['$scope', '$auth', '$http', '$location',
 	function ($scope, $auth, $http, $location) {
     $scope.isAuthenticated = function() {
-    	$http.get('/api/me')
-    		.then(function (response) {
-    	    if (!!response.data) {
-    	      $scope.currentUser = response.data;
-    	    } else {
-    	      $auth.removeToken();
-    	    }
-    	  }, function (error) {
-    	    console.error(error);
-    	    $auth.removeToken();
-    	  });
+      // send GET request to /api/me
+
+      // if response.data comes back, set $scope.currentUser = response.data
+
+      // otherwise remove token
     };
 
     $scope.isAuthenticated();
