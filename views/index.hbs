@@ -14,11 +14,20 @@
   <!-- custom styles -->
   <link rel="stylesheet" type="text/css" href="styles/main.css">
 
+  <!-- jquery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
   <!-- angular -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
 
   <!-- ngRoute -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+
+  <!-- satellizer -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/satellizer/0.13.4/satellizer.min.js"></script>
 
   <!-- custom script (angular app) -->
   <script type="text/javascript" src="scripts/app.js"></script>
@@ -42,19 +51,20 @@
           <li><a href="/">Home</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <div ng-show="!currentUser">
-            <li><a href="/signup">Sign Up</a></li>
-            <li><a href="/login">Log In</a></li>
-          </div>
-          <div ng-show="currentUser">
-            <li><a href="/profile">{{currentUser.displayName}}</a></li>
-          </div>
+          <li ng-show="!currentUser"><a href="/signup">Sign Up</a></li>
+          <li ng-show="!currentUser"><a href="/login">Log In</a></li>
+          <li ng-show="currentUser"><a href="/profile">\{{currentUser.displayName}}</a></li>
+          <li ng-show="currentUser"><a href="#" ng-click="logout()">Log Out</a></li>
         </ul>
       </div>
     </div>
   </nav>
   <div class="container">
-    <div ng-view></div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div ng-view></div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
