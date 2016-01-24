@@ -36,7 +36,7 @@ app.controller('MainCtrl', ['$scope', '$auth', '$http', '$location',
 
       // if response.data comes back, set $scope.currentUser = response.data
 
-      // otherwise remove token
+      // otherwise remove token (https://github.com/sahat/satellizer#authremovetoken)
     };
 
     $scope.isAuthenticated();
