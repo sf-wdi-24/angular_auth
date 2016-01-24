@@ -47,3 +47,9 @@ Challenges for <a href="https://github.com/sf-wdi-24/modules/tree/master/week-11
 3. Starting on line 35 of `app.js`, start following the instructions in comments to implement authentication with Satellizer. The current driver should implement `$scope.isAuthenticated` and `$scope.logout`.
 
 4. Refresh `localhost:3000` in the browser. At this point, you should see in the Chrome developer tools that your browser is making a request to `/api/me`. Click the "Log Out" link and make sure it redirects to `/login`.
+
+5. The current driver should add and commit their changes, and push their work up to GitHub. Switch drivers.
+
+6. The new driver should pick up where their partner left off by implementing the functionality outlined in the `AuthCtrl` and the `ProfileCtrl`.
+
+7. At this point, you should be able to sign up a user, log them in, and view their profile page from the client.
