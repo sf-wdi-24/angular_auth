@@ -93,15 +93,15 @@ app.controller('AuthCtrl', ['$scope', '$auth', '$location',
     };
 
     $scope.login = function() {
-      $auth.login($scope.user)
-        .then(function (response) {
-          $auth.setToken(response.data.token);
-          $scope.isAuthenticated();
-          $scope.user = {};
-          $location.path('/profile');
-        }, function (error) {
-          console.error(error);
-        });
+      // login (https://github.com/sahat/satellizer#authloginuser-options)
+
+        // set token (https://github.com/sahat/satellizer#authsettokentoken)
+
+        // call $scope.isAuthenticated to set $scope.currentUser
+
+        // clear sign up form
+
+        // redirect to '/profile'
     };
   }]
 );
