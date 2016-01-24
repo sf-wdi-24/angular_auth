@@ -51,7 +51,7 @@ app.controller('MainCtrl', ['$scope', '$auth', '$http', '$location',
     $scope.isAuthenticated();
 
     $scope.logout = function() {
-      // logout
+      // logout (https://github.com/sahat/satellizer#authlogout)
       $auth.logout()
         .then(function() {
           // remove token
