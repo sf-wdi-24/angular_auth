@@ -2,9 +2,12 @@
 <hr>
 <p><strong>Email:</strong> {{currentUser.email}}</p>
 <p><strong>Username:</strong> {{currentUser.username}}</p>
-<p><strong>Joined:</strong> {{currentUser.created}}</p>
+<p><strong>Joined:</strong> {{currentUser.created | date:'MMMM dd, yyyy'}}</p>
+<p><strong>Posts:</strong> {{currentUser.posts.length}}</p>
+
 <hr>
 <a href="#" ng-click="showEditForm=true" ng-hide="showEditForm" class="btn btn-default"><i class="fa fa-pencil"></i> Edit Profile</a>
+
 <form ng-show="showEditForm" ng-submit="editProfile()">
 	<div class="form-group">
 	  <input type="text" ng-model="currentUser.displayName" class="form-control" placeholder="Full Name">

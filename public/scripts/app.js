@@ -70,11 +70,17 @@ app.controller('HomeCtrl', ['$scope', '$http',
   function ($scope, $http) {
     $scope.posts = [];
     $scope.post = {};
+
+    $http.get('/api/posts')
+      .then(function (response) {
+        $scope.posts = response.data;
+      });
     
     $scope.createPost = function() {
       $http.post('/api/posts', $scope.post)
         .then(function (response) {
-          console.log(response.data);
+          $scope.post = {};
+          $scope.posts.push(response.data);
         });
     };
   }]
@@ -143,3 +149,9 @@ app.controller('ProfileCtrl', ['$scope', '$auth', '$http', '$location',
         });
     };
 }]);
+
+app.filter('formatDate', function() {
+  return function (date) {
+    return date;
+  };
+});
