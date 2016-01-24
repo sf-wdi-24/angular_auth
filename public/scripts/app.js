@@ -48,7 +48,7 @@ app.controller('MainCtrl', ['$scope', '$auth', '$http', '$location',
 
         // set $scope.currentUser = null
 
-        // redirect to '/'
+        // redirect to '/login'
     };
   }]
 );
