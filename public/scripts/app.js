@@ -32,22 +32,23 @@ app.config(['$routeProvider', '$locationProvider',
 app.controller('MainCtrl', ['$scope', '$auth', '$http', '$location',
 	function ($scope, $auth, $http, $location) {
     $scope.isAuthenticated = function() {
-      // send GET request to /api/me
+      // send GET request to '/api/me'
 
-      // if response.data comes back, set $scope.currentUser = response.data
+        // if response.data comes back, set $scope.currentUser = response.data
 
-      // otherwise remove token (https://github.com/sahat/satellizer#authremovetoken)
+        // otherwise remove token (https://github.com/sahat/satellizer#authremovetoken)
     };
 
     $scope.isAuthenticated();
 
     $scope.logout = function() {
-      $auth.logout()
-        .then(function() {
-          $auth.removeToken();
-          $scope.currentUser = null;
-          $location.path('/');
-        });
+      // logout
+
+        // remove token
+
+        // set $scope.currentUser = null
+
+        // redirect to '/'
     };
   }]
 );
