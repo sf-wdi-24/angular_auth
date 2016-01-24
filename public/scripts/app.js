@@ -114,4 +114,7 @@ app.controller('AuthCtrl', ['$scope', '$auth', '$location',
 app.controller('ProfileCtrl', ['$scope', '$http', '$location',
 	function ($scope, $http, $location) {
     // if user is not logged in, redirect to '/login'
+    if (!$scope.currentUser) {
+      $location.path('/login');
+    }
 }]);
