@@ -39,7 +39,7 @@ Challenges for <a href="https://github.com/sf-wdi-24/modules/tree/master/week-11
 
 1. At this point, the "driver" should add the "navigator" as a collaborator on their forked version of the repo. No need to commit anything yet, since you haven't written any code. It's time to switch drivers! The new driver should clone their partner's forked version of the repo into their develop folder. The new navigator must close their computer.
 
-2. Now it's time to implement authentication from the client. First you need to include Satellizer in your Angular app:
+2. Now it's time to implement authentication from the client. First, you need to include Satellizer in your Angular app:
   * Add the Satellizer CDN to `index.hbs`.
   * Add the Satellizer module to your Angular app in `app.js`.
   * Check that you can navigate between your routes (`/`, `/signup`, `/login`, and `/profile`).
@@ -68,7 +68,7 @@ Challenges for <a href="https://github.com/sf-wdi-24/modules/tree/master/week-11
 
 1. Switch drivers - you know the drill - add, commit, and push, then the new driver should pull.
 
-2. Create a form on the homepage for the user to add a post (that's right - you're turning your Angular app into a microblog!). The form should have input (`post.title`) and textarea (`post.content`) fields. Use `ng-model` to bind the form input values to `$scope`.
+2. Create a form on the homepage for the user to add a post (that's right - you're turning your Angular app into a microblog). The form should have input (`post.title`) and textarea (`post.content`) fields. Use `ng-model` to bind the form input values to `$scope`.
 
 3. Only show the form if there is a `currentUser` logged in.
 
@@ -76,14 +76,15 @@ Challenges for <a href="https://github.com/sf-wdi-24/modules/tree/master/week-11
 
 5. `createPost` should make an `$http.post` request to `/api/posts` (which isn't defined yet on the server) with the `$scope.post` object.
 
-6. The next step is to implement posts on the server. First, create a Mongoose model `Post`,
+6. The next step is to implement posts on the server. First, create a Mongoose model `Post` (`models/post.js`).
 
 7. A user should have many posts, so add an attribute to the `User` model called `posts` that references the `Post` model:
 
-  ```
+  ```js
   /*
    * models/user.js
    */
+
    var userSchema = new Schema({
      ...
      posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }]
@@ -104,4 +105,4 @@ Challenges for <a href="https://github.com/sf-wdi-24/modules/tree/master/week-11
 
 3. On the user's profile page, display the number of posts the user has written. **Hint:** You'll need to add `.populate('posts')` to your `GET /api/me` route in `server.js`.
 
-4. On the user profile page, the "Joined" date is not formatted very nicely. Create a <a href="https://docs.angularjs.org/guide/filter#creating-custom-filters" target="_blank">custom filter</a> to display the date in the correct time zone and in this format: `January 25, 2016`.
+4. On the user profile page, the "Joined" date isn't formatted very nicely. Create a <a href="https://docs.angularjs.org/guide/filter#creating-custom-filters" target="_blank">custom filter</a> to display the date in the correct time zone and in this format: `January 25, 2016`.
