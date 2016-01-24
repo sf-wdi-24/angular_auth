@@ -4,7 +4,8 @@ app.config(['$routeProvider', '$locationProvider',
   function ($routeProvider, $locationProvider) {
     $routeProvider
     	.when('/', {
-    		templateUrl: 'templates/home.html'
+    		templateUrl: 'templates/home.html',
+        controller: 'HomeCtrl'
     	})
     	.when('/signup', {
     		templateUrl: 'templates/signup.html',
@@ -60,6 +61,20 @@ app.controller('MainCtrl', ['$scope', '$auth', '$http', '$location',
           $scope.currentUser = null;
           // redirect to '/login'
           $location.path('/login');
+        });
+    };
+  }]
+);
+
+app.controller('HomeCtrl', ['$scope', '$http',
+  function ($scope, $http) {
+    $scope.posts = [];
+    $scope.post = {};
+    
+    $scope.createPost = function() {
+      $http.post('/api/posts', $scope.post)
+        .then(function (response) {
+          console.log(response.data);
         });
     };
   }]
