@@ -28,7 +28,7 @@ Challenges for <a href="https://github.com/sf-wdi-24/modules/tree/master/week-11
   TOKEN_SECRET=yoursupersecrettoken
   ```
 
-  This is the secret your server will use to encode the JWT token for each user.
+  This is the secret your server will use to encode the JWT token for each user. Make sure to restart your Node server after this step.
 
 8. Before hooking up the front-end, test your server routes via Postman:
   * Send a `GET` request to `/api/me`. You should see the message: "Please make sure your request has an Authorization header."
@@ -39,20 +39,20 @@ Challenges for <a href="https://github.com/sf-wdi-24/modules/tree/master/week-11
 
 1. At this point, the "driver" should add the "navigator" as a collaborator on their forked version of the repo. No need to commit anything yet, since you haven't written any code. It's time to switch drivers! The new driver should clone their partner's forked version of the repo into their develop folder. The new navigator must close their computer.
 
-2. Now it's time to implement authentication from the client. First, you need to include Satellizer in your Angular app:
+2. The new driver should get setup with `mongod` and `nodemon`. You'll also need to create a `.env` file with the `TOKEN_SECRET`, and restart your Node server.
+
+3. Now it's time to implement authentication from the client. First, you need to include Satellizer in your Angular app:
   * Add the Satellizer CDN to `index.hbs`.
   * Add the Satellizer module to your Angular app in `app.js`.
   * Check that you can navigate between your routes (`/`, `/signup`, `/login`, and `/profile`).
 
-3. Starting on line 35 of `app.js`, start following the instructions in comments to implement authentication with Satellizer. The current driver should implement `$scope.isAuthenticated` and `$scope.logout`.
-
-4. Refresh `localhost:3000` in the browser. At this point, you should see in the Chrome developer tools that your browser is making a request to `/api/me`. Click the "Log Out" link and make sure it redirects to `/login`.
+4. Starting on line 35 of `app.js`, start following the instructions in comments to implement authentication with Satellizer. The current driver should implement `$scope.isAuthenticated` and `$scope.logout`.
 
 5. The current driver should add and commit their changes, and push their work up to GitHub. Switch drivers.
 
 6. The new driver should pick up where their partner left off by implementing the functionality outlined in the `AuthCtrl` and the `ProfileCtrl`.
 
-7. At this point, you should be able to sign up a user, log them in, and view their profile page from the client.
+7. At this point, you should be able to sign up a user, log them in, view their profile page, and log them out from the client.
 
 ## User Settings
 
